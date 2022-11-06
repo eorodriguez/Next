@@ -16,9 +16,9 @@
     "incremental": true,
     "baseUrl": ".",
     "paths" : {
-      "@/components/*": ["components/*"],
-      "@/styles/*": ["styles/*"],
-      "@/prisma/*": ["prisma/*"],
+      "@/components/*": ["src/components/*"],
+      "@/styles/*": ["src/styles/*"],
+      "@/prisma/*": ["src/server/db/prisma/*"],
       "@/config/*": ["config/*"]
     }
   },
