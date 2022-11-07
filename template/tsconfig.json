@@ -18,7 +18,8 @@
     "paths" : {
       "@/components/*": ["src/components/*"],
       "@/styles/*": ["src/styles/*"],
-      "@/prisma/*": ["src/server/db/prisma/*"],
+      "@/prisma/*": ["prisma/*"],
+      "@/prismaConfig/*": ["src/server/db/*"],
       "@/config/*": ["config/*"]
     }
   },

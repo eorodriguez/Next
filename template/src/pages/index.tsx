@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Home() {
   return (
@@ -66,6 +67,36 @@ export default function Home() {
           </span>
         </a>
       </footer>
+      <AuthShowcase />
     </div>
   )
 }
+
+const AuthShowcase: React.FC = () => {
+  const { data: sessionData } = useSession();
+
+  //const { data: secretMessage } = trpc.auth.getSecretMessage.useQuery(
+  //  undefined, // no input
+  //  { enabled: sessionData?.user !== undefined },
+  //);
+  //      {secretMessage && (
+  //  <p className="text-2xl text-blue-500">{secretMessage}</p>
+  //  )}
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-2">
+      {sessionData && (
+        <p className="text-2xl text-blue-500">
+          Logged in as {sessionData?.user?.name} {sessionData?.user?.id}
+        </p>
+      )}
+
+      <button
+        className="rounded-md border border-black bg-red-400 px-4 py-2 text-xl shadow-lg text-red-700 hover:bg-violet-500"
+        onClick={sessionData ? () => signOut() : () => signIn()}
+      >
+        {sessionData ? "Sign out" : "Sign in"}
+      </button>
+    </div>
+  );
+};

@@ -10,8 +10,3 @@ npx prisma init
 npx prisma migrate dev --name "name"    <-- migration
 npx prisma pull   <-- pulls existing db
 npx prisma push -> creates db
-
-
-Moved contents to src folder
-    Similar folder structure to T3 template:
-    https://github.com/t3-oss/create-t3-app
